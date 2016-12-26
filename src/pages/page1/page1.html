@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title [hidden]='searchbar'>
+      Kata
+    </ion-title>
+    <ion-searchbar [hidden]='!searchbar' (ionInput)="getItems($event)" [(ngModel)]="stext"></ion-searchbar>
+    <ion-buttons start>
+      <button ion-button [hidden]='searchbar' (click)="searchbar=1">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button [hidden]='!searchbar' (click)="searchbar=undefined" (click)="initialize(); stext='';">
+        Close
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="about" padding>
+  <ion-card *ngFor="let item of listshow">
+    <ion-card-title style="text-align:center">
+      {{ item.kataname }}
+    </ion-card-title>
+    <ion-col style="text-align:center">
+      <img [src]="image(item.src)" (click)="imageopen(image(item.src), item.kataname)" (load)="onload(item.kataname)" [hidden]="!image[item.kataname]"/>
+      <ion-spinner [hidden]="image[item.kataname]"></ion-spinner>
+    </ion-col>
+    <ion-card-content>
+      <p><b>Style : </b>{{item.style}}</p>
+      <p><b>Steps : </b>{{item.moves}}</p>
+      <p><b>Meaning : </b>{{item.meaning}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col><button (click)="watchvideo(item.src)" light><ion-icon name="logo-youtube"></ion-icon> Watch</button></ion-col>
+      <!--<ion-col style="text-align:right;"><button clear disabled dark><ion-icon name="eye"></ion-icon> {{item.views}}</button></ion-col>-->
+    </ion-row>
+  </ion-card>
+</ion-content>
