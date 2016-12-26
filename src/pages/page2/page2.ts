@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import {YoutubeVideoPlayer, File, PhotoViewer} from 'ionic-native';
-import { NavController, NavParams } from 'ionic-angular';
+import {YoutubeVideoPlayer, PhotoViewer} from 'ionic-native';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-page2',
@@ -12,6 +12,7 @@ export class Page2 {
   kumitelist;
   listshow = [];
   loader;
+  stext = '';
 
 
   constructor(public navCtrl: NavController,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform, NavController, LoadingController } from 'ionic-angular';
-import {YoutubeVideoPlayer, File, PhotoViewer} from 'ionic-native';
+import {YoutubeVideoPlayer, PhotoViewer} from 'ionic-native';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
 
@@ -12,6 +12,7 @@ export class Page1 {
   katalist;
   listshow = [];
   loader;
+  stext = '';
   constructor(public navCtrl: NavController,
               private platform: Platform,
               public http : Http,

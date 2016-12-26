@@ -28,6 +28,10 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
+resources/*
+karate.keystore
+keytool
+zipalign.exe
 
 .DS_Store
 Thumbs.db
